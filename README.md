@@ -46,7 +46,6 @@ while read ind;
   bwa mem \
   -t 32 \
   ../genome/GCA_916700875.1_S-aleutianus_SEB-111_genomic.fna \
-  $ind.trimmed.fastq.gz 
-  | samtools sort -o align/$ind\.sorted.bam -T $ind -@ 32 -m 3G ;
-  done <  inds.tsv
+  trim/$ind.trimmed.fastq.gz | samtools sort -o align/$ind\.sorted.bam -T $ind -@ 24  ;
+done <  inds.tsv
 ```
