@@ -49,3 +49,16 @@ while read ind;
   trim/$ind.trimmed.fastq.gz | samtools sort -o align/$ind\.sorted.bam -T $ind -@ 24  ;
 done <  inds.tsv
 ```
+
+Deduplicate reads
+
+```
+#deduplicate in parallel
+cat inds.tsv | \
+  parallel --jobs 5 'gatk --java-options "-Xmx4G" \
+  MarkDuplicates \
+  I=align/{}.sorted.bam \
+  O={}.deDup.bam M={}_deDupMetrics.txt \
+  REMOVE_DUPLICATES=true'
+```
+
