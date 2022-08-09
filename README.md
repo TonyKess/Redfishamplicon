@@ -64,11 +64,13 @@ cat inds.tsv | \
 
 Haplotype caller genotyping
 ```
+mkdir vcfs 
+
 ls align/*.deDup.bam | sed 's/.deDup.bam//' | \
   parallel --jobs 24 \
   'gatk --java-options "-Xmx2G" \
   HaplotypeCaller \
   -ERC GVCF \
   -R ../genome/GCA_916700875.1_S-aleutianus_SEB-111_genomic.fna \
-  -I {}.deDup.bam -O {}.g.vcf'
+  -I align/{}.deDup.bam -O vcfs/{}.g.vcf'
 ```
