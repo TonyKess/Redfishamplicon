@@ -58,7 +58,7 @@ cat inds.tsv | \
   parallel --jobs 24 'gatk --java-options "-Xmx4G" \
   MarkDuplicates \
   I=align/{}.sorted.bam \
-  O={}.deDup.bam M={}_deDupMetrics.txt \
+  O=align/{}.deDup.bam M=align/{}_deDupMetrics.txt \
   REMOVE_DUPLICATES=true'
 ```
 
