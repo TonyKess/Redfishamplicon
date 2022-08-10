@@ -66,6 +66,12 @@ cat inds.tsv | \
   REMOVE_DUPLICATES=true'
 ```
 
+Index after deduplication
+```
+while read  ind; 
+  do samtools index align/$ind.deDup.bam ; done < inds.tsv
+```
+
 Make sequence dictionary
 ```
 gatk CreateSequenceDictionary -R ../genome/GCA_916700875.1_S-aleutianus_SEB-111_genomic.fna
