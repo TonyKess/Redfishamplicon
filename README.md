@@ -43,9 +43,13 @@ mkdir align
 
 while read ind;
   do echo $ind\.bam ;
+  RGID=$(echo $ind) ;
+  SMID=$(echo $ind) ;
+  LBID=$(echo $ind) ;
   bwa mem \
   -t 32 \
-  ../genome/GCA_916700875.1_S-aleutianus_SEB-111_genomic.fna \
+  -R "@RG\tID:$RGID\tSM:$SMID\tLB:$LBID" \
+   ../genome/GCA_916700875.1_S-aleutianus_SEB-111_genomic.fna \
   trim/$ind.trimmed.fastq.gz | samtools sort -o align/$ind\.sorted.bam -T $ind -@ 24  ;
 done <  inds.tsv
 ```
