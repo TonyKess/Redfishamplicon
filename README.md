@@ -62,6 +62,12 @@ cat inds.tsv | \
   REMOVE_DUPLICATES=true'
 ```
 
+Make sequence dictionary
+```
+gatk CreateSequenceDictionary -R ../genome/GCA_916700875.1_S-aleutianus_SEB-111_genomic.fna
+```
+
+
 Haplotype caller genotyping
 ```
 mkdir vcfs 
