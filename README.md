@@ -103,3 +103,13 @@ gatk BedToIntervalList \
  -SD GCA_916700875.1_S-aleutianus_SEB-111_genomic.dict
 
 ```
+GenomicsDBImport
+
+```
+gatk --java-options "-Xmx4g -Xms4g" \
+  GenomicsDBImport \
+  --genomicsdb-workspace-path rf_database \
+  --sample-name-map ampliconvcfs.sample_map \
+  -L ../genome/GCA_916700875.1_S-aleutianus_SEB-111_genomic.interval_list \
+  --reader-threads 24
+```
