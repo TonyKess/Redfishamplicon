@@ -91,3 +91,15 @@ cat inds.tsv | \
   -I align/{}.deDup.bam -O vcfs/{}.g.vcf'
 
 ```
+
+Make intervals for GenomicsDBImport
+
+```
+cd ../genome
+
+gatk BedToIntervalList \
+ -I GCA_916700875.1_S-aleutianus_SEB-111_genomic.bed \
+ -O GCA_916700875.1_S-aleutianus_SEB-111_genomic.interval_list \
+ -SD GCA_916700875.1_S-aleutianus_SEB-111_genomic.dict
+
+```
