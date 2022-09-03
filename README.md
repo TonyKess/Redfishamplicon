@@ -113,3 +113,12 @@ gatk --java-options "-Xmx4g -Xms4g" \
   -L ../genome/GCA_916700875.1_S-aleutianus_SEB-111_genomic.interval_list \
   --reader-threads 24
 ```
+
+Genotype all the g.vfcs with DB info
+
+```
+ gatk --java-options "-Xmx4g" GenotypeGVCFs \
+   -R ../genome/GCA_916700875.1_S-aleutianus_SEB-111_genomic.fna \
+   -V gendb://rf_database \
+   -O redfish_amplicon.vcf.gz
+```
